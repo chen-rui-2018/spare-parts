@@ -1,4 +1,4 @@
-package com.xj.spare.controller;
+package com.xj.work.spare.controller;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import org.springframework.web.bind.annotation.RestController;

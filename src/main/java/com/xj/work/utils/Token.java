@@ -1,4 +1,4 @@
-package com.xj.spare.utils;
+package com.xj.work.utils;
 
 
 import org.apache.commons.codec.binary.Base64;
