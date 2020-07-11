@@ -28,8 +28,6 @@ public class SparePartsQuery extends Page {
     private String productAssetModel;
     @ApiModelProperty(value = "制造国家")
     private String manufactureCountry;
-    @ApiModelProperty(value = "是否危急")
-    private Boolean critical;
     @ApiModelProperty(value = "设备厂家")
     private String manufacturer;
     @ApiModelProperty(value = "运维单位")
@@ -48,10 +46,10 @@ public class SparePartsQuery extends Page {
     private String ratedVoltage;
     @ApiModelProperty(value = "仓库")
     private String sparePartsWareHouse;
-    @ApiModelProperty(value = "货架位置")
-    private String sparePartsStoreLoc;
     @ApiModelProperty(value = "专业")
     private String major;
     @ApiModelProperty(value = "备品备件状态")
     private String sparePartsStatus;
+    @ApiModelProperty(value = "是否完整")
+    private Boolean complete;
 }
