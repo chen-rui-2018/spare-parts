@@ -6,6 +6,7 @@ import com.xj.work.common.Params;
 import com.xj.work.spare.model.SparePartsQuery;
 import com.xj.work.spare.service.SparePortsService;
 import com.xj.work.spare.vo.SparePartsVo;
+import com.xj.work.utils.HttpUtil;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
@@ -60,7 +61,17 @@ public class SparePortsServiceImpl implements SparePortsService {
 
     @Override
     public PaginationData<List<SparePartsVo>> getSparePartsList(SparePartsQuery query){
-        Params params = getParams(query,new SparePartsVo());
+        try {
+
+            Params params = getParams(query,new SparePartsVo());
+//            SparePartsVo result =   new HttpUtil().postForObject("/AssetCenter/spareParts/info/find",params,SparePartsVo.class);
+            SparePartsVo result = new SparePartsVo();
+            List<SparePartsVo> list = new ArrayList<>();
+            list.add(result);
+            return new PaginationData<>(list,list.size());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -75,12 +86,13 @@ public class SparePortsServiceImpl implements SparePortsService {
             filtersList.add(filters);
         }
         Class spare = vo.getClass();
-        Field[] fields = spare.getFields();
+        Field[] fields = spare.getDeclaredFields();
         StringBuilder  stringBuilder = new StringBuilder();
         for (Field field : fields){
             stringBuilder.append(field.getName()+",");
         }
-        params.setFields( stringBuilder.toString().substring(0,stringBuilder.length()-1));
+        String field = stringBuilder.toString();
+        params.setFields(field.substring(0,field.length()-1));
         params.setFilters(filtersList);
         params.setPage(query.getPage()==0?1:query.getPage());
         params.setPerPage(query.getRows()==0?20:query.getRows());
