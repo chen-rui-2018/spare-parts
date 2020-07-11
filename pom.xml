@@ -124,7 +124,11 @@
       <artifactId>lombok</artifactId>
       <version>1.16.18</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>4.3.18.RELEASE</version>
+    </dependency>
   </dependencies>
 <!--构建节点-->
   <build>
