@@ -1,23 +1,21 @@
-package com.xj.work.spare.vo;
+package com.xj.work.spare.model;
 
+import com.xj.work.common.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 
 /**
  * @author： chenr
- * @date： Created on 2020/7/10 15:22
+ * @date： Created on 2020/7/10 19:22
  * @version： v1.0
  * @modified By:
  */
-@ApiModel("备品备件")
+@ApiModel(value = "备品备件台账查询入参")
 @Data
-public class SparePartsVo {
-    @ApiModelProperty(value = "备品备件id")
-    private String mRID;
+public class SparePartsQuery extends Page {
     @ApiModelProperty(value = "备品备件类型")
     private String sparePartsType;
     @ApiModelProperty(value = "识别对象名称")
@@ -56,25 +54,4 @@ public class SparePartsVo {
     private String major;
     @ApiModelProperty(value = "备品备件状态")
     private String sparePartsStatus;
-    @ApiModelProperty(value = "是否完整")
-    private Boolean complete;
-    @ApiModelProperty(value = "是否打印",example = "true")
-    private Boolean print;
-    @ApiModelProperty(value = "铭牌图片/照片信息",example = "二维码图信息")
-    private MultipartFile nameplatePictureInf;
-    @ApiModelProperty(value = "正面图信息",example = "二维码图信息")
-    private MultipartFile frontInf;
-    @ApiModelProperty(value = "背面图信息",example = "二维码图信息")
-    private MultipartFile backInf;
-    @ApiModelProperty(value = "左侧图信息",example = "二维码图信息")
-    private MultipartFile leftInf;
-    @ApiModelProperty(value = "右侧图信息",example = "二维码图信息")
-    private MultipartFile rightInf;
-    @ApiModelProperty(value = "备品二维码",example = "二维码图信息")
-    private String qRcode;
-    @ApiModelProperty(value = "二维码图信息",example = "二维码图信息")
-    private MultipartFile qRcodeInf;
-
-
-
 }

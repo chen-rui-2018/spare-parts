@@ -1,6 +1,7 @@
 package com.xj.work.spare.service;
 
 import com.xj.work.common.PaginationData;
+import com.xj.work.spare.model.SparePartsQuery;
 import com.xj.work.spare.vo.SparePartsVo;
 
 import java.util.List;
@@ -35,8 +36,8 @@ public interface SparePortsService {
 
     /**
      * 获取备品备件列表
-     * @param sparePartsVo
+     * @param query
      * @return
      */
-    PaginationData<List<SparePartsVo>> getSparePartsList(SparePartsVo sparePartsVo);
+    PaginationData<List<SparePartsVo>> getSparePartsList( SparePartsQuery query);
 }

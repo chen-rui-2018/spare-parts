@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.jn.springboot</groupId>
@@ -84,16 +84,16 @@
       <version>1.5.20</version>
     </dependency>
     <!--mybatis 逆向引入的包-->
-      <dependency>
-          <groupId>org.mybatis.generator</groupId>
-          <artifactId>mybatis-generator-core</artifactId>
-          <version>1.3.2</version>
-      </dependency>
-      <dependency>
-          <groupId>org.mybatis</groupId>
-          <artifactId>mybatis</artifactId>
-          <version>3.2.7</version>
-      </dependency>
+    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-core</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.2.7</version>
+    </dependency>
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
@@ -130,7 +130,7 @@
       <version>4.3.18.RELEASE</version>
     </dependency>
   </dependencies>
-<!--构建节点-->
+  <!--构建节点-->
   <build>
     <!--添加springloader plugin
     <plugins>

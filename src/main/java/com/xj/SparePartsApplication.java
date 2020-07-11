@@ -1,7 +1,6 @@
 package com.xj;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -18,8 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //@SpringCloudApplication
 @EnableSwagger2Doc
 @EnableScheduling
-@SpringBootApplication
-@MapperScan("com.xj.work.**")
+@SpringBootApplication(scanBasePackages = {"com.xj.work"})
 public class SparePartsApplication {
     public static void main(String[] args ) {
         SpringApplication.run(SparePartsApplication.class,args);
