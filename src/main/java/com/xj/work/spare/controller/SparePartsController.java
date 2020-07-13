@@ -2,18 +2,19 @@ package com.xj.work.spare.controller;
 
 import com.xj.work.common.PaginationData;
 import com.xj.work.common.Result;
-import com.xj.work.spare.model.SparePartsQuery;
-import com.xj.work.spare.service.SparePortsService;
+import com.xj.work.spare.entity.InfSGScrapApplication;
+import com.xj.work.spare.entity.SparePartsQuery;
+import com.xj.work.spare.service.SparePartsService;
 import com.xj.work.spare.vo.SparePartsVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,24 +26,24 @@ import java.util.List;
 @Api(tags = "备品备件台账")
 @RestController
 @RequestMapping("/work/spare")
-public class SparePortsController {
+public class SparePartsController {
     @Autowired
-    private   SparePortsService sparePortsService;
+    private SparePartsService sparePortsService;
 
     @ApiOperation(value = "新增备品备件台账")
-    @RequestMapping(value = "/addSpareParts",method = RequestMethod.POST)
+    @RequestMapping(value = "/addSpareParts",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result<String> addSpareParts( @RequestBody SparePartsVo sparePartsVo){
        String id =  sparePortsService.addSpareParts(sparePartsVo);
         return new Result<>(id);
     }
     @ApiOperation(value = "修改备品备件台账")
-    @RequestMapping(value = "/updateSpareParts",method = RequestMethod.POST)
+    @RequestMapping(value = "/updateSpareParts",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result<String> updateSpareParts(@RequestBody SparePartsVo sparePartsVo){
         String id =  sparePortsService.updateSpareParts(sparePartsVo);
         return new Result<>(id);
     }
     @ApiOperation(value = "删除备品备件台账")
-    @RequestMapping(value = "/deleteSpareParts",method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteSpareParts",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result<String> deleteSpareParts(@RequestBody SparePartsVo sparePartsVo){
         String id =  sparePortsService.deleteSpareParts(sparePartsVo);
         return new Result<>(id);
@@ -54,6 +55,13 @@ public class SparePortsController {
         PaginationData data =  sparePortsService.getSparePartsList(query);
         return new Result<>(data);
     }
+    @ApiOperation(value = "备品备件设备转报废")
+    @RequestMapping(value = "/convertScrap",method = RequestMethod.POST)
+    public Result<SparePartsVo> convertScrap(@RequestBody InfSGScrapApplication scrap){
+        SparePartsVo data =  sparePortsService.convertScrap(scrap);
+        return new Result<>(data);
+    }
+
 
 
 }

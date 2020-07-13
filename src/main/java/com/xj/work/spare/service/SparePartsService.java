@@ -1,7 +1,8 @@
 package com.xj.work.spare.service;
 
 import com.xj.work.common.PaginationData;
-import com.xj.work.spare.model.SparePartsQuery;
+import com.xj.work.spare.entity.InfSGScrapApplication;
+import com.xj.work.spare.entity.SparePartsQuery;
 import com.xj.work.spare.vo.SparePartsVo;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * @version： v1.0
  * @modified By:
  */
-public interface SparePortsService {
+public interface SparePartsService {
     /**
      * 新增备品备件
      * @param sparePartsVo
@@ -40,4 +41,11 @@ public interface SparePortsService {
      * @return
      */
     PaginationData<List<SparePartsVo>> getSparePartsList( SparePartsQuery query);
+
+    /**
+     * 备品备件设备转报废
+     * @param scrap
+     * @return
+     */
+    SparePartsVo convertScrap(InfSGScrapApplication scrap);
 }

@@ -1,4 +1,4 @@
-package com.xj.work.spare.model;
+package com.xj.work.spare.entity;
 
 import com.xj.work.common.Page;
 import io.swagger.annotations.ApiModel;

@@ -1,4 +1,4 @@
-package com.xj.work.spare.model;
+package com.xj.work.spare.enums;
 
 /**
  * @author： chenr

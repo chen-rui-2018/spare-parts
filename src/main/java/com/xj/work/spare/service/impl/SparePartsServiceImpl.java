@@ -3,10 +3,10 @@ package com.xj.work.spare.service.impl;
 import com.xj.work.common.Filters;
 import com.xj.work.common.PaginationData;
 import com.xj.work.common.Params;
-import com.xj.work.spare.model.SparePartsQuery;
-import com.xj.work.spare.service.SparePortsService;
+import com.xj.work.spare.entity.InfSGScrapApplication;
+import com.xj.work.spare.entity.SparePartsQuery;
+import com.xj.work.spare.service.SparePartsService;
 import com.xj.work.spare.vo.SparePartsVo;
-import com.xj.work.utils.HttpUtil;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
@@ -21,7 +21,7 @@ import java.util.UUID;
  * @modified By:
  */
 @Service
-public class SparePortsServiceImpl implements SparePortsService {
+public class SparePartsServiceImpl implements SparePartsService {
     @Override
     public String addSpareParts(SparePartsVo sparePartsVo) {
         try {
@@ -69,6 +69,19 @@ public class SparePortsServiceImpl implements SparePortsService {
             List<SparePartsVo> list = new ArrayList<>();
             list.add(result);
             return new PaginationData<>(list,list.size());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public SparePartsVo convertScrap(InfSGScrapApplication scrap) {
+
+        try {
+//          SparePartsVo result =   new HttpUtil().postForObject("/AssetCenter/spareParts/info/convertScrap",scrap,SparePartsVo.class);
+            SparePartsVo result = new SparePartsVo();
+            return result;
         }catch (Exception e){
             e.printStackTrace();
         }
